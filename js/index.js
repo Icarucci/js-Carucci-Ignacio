@@ -73,7 +73,6 @@ mainIndexDIV3.appendChild(crearUsuario);
 
 
 
-
 // Estilos DOM
 cuerpo.style.margin = '0px';
 cabecera.style.backgroundColor = 'rgb(243, 243, 243)';
