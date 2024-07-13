@@ -3,28 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CoderHouse</title>
+    <title>Pago Mis Deudas | login</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<style>
-    body {
-        background-color: aqua;
-    }
-</style>
-<body>
-    <h1>
-        PagoMisDeudas
-    </h1>
-    <h2>
-       Una forma simple de pagar tus servicios
-    </h2>
-    <button>
-        Carucci Ignacio
-    </button>
+<body onload="checkin()">
+    <div id="dinamico"> </div>
+
     <!-- <script src="js/script.js"></script> -->
-    <script src="js/script.js">
+    <!-- <script src="js/script.js"> 
         console.log("PagoMisDeudas Iniciado");
         
-    </script>
+    </script>-->
+    <section id="modal_container" class="modal-container">
+        <div class="modal">
+            <div>
+                <h1>Crea tu usuario</h1>
+            </div>
+            <form id="formCrearUsuario">
+                <div>
+                    <h2>Usuario</h2>
+                    <input id="nuevoUsuario" type="text" placeholder="Ingrese nombre de usuario">
+                </div>
+                <div>
+                    <h2>Contraseña</h2>
+                    <input id="nuevaContraseña" type="password" placeholder="Ingrese contraseña">
+                </div>
+                <div>
+                    <button type="submit" id="close" value="Enviar">CREAR</button>
+            </div>
+            
+            </form>
+        </div>
+    </section>
+
+
+    <script src="js/index.js"></script>
+    <script src="js/checkin.js"></script>
+
+
+    
 </body>
 </html>
