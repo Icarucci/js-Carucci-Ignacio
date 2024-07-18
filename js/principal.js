@@ -1,27 +1,37 @@
 //Variables globales
-let saldo = 0.0;
+let saldo = '';
+function inicioSaldo(){
+    if(sessionStorage.getItem('saldoUsuario') === null)
+        sessionStorage.setItem('saldoUsuario', 0);
+    else{
+        saldo+=sessionStorage.getItem('saldoUsuario');
+    }
+}
+inicioSaldo()
+
+
 
 // Delaración de Variables del Body y asignaciones de ID y/o clases
 const body = document.getElementById('body');
 
 // Delaración de Variables DivContainer y asignaciones de ID y/o clases
 const containerDiv = document.createElement('div');
-containerDiv.setAttribute('class','container');
+containerDiv.setAttribute('class', 'container');
 const classContainter = document.getElementById('container');
 
 // Delaración de Variables Aside y asignaciones de ID y/o clases
 const aside = document.createElement('aside');
-aside.setAttribute('id','aside');
+aside.setAttribute('id', 'aside');
 const asidePrincipal = document.getElementById('aside');
 const divlog = document.createElement('div');
-divlog.setAttribute('id','divlog');
+divlog.setAttribute('id', 'divlog');
 const div1 = document.createElement('div');
-div1.setAttribute('id','div1');
+div1.setAttribute('id', 'div1');
 const userNameAside = document.createElement('h3');
-userNameAside.setAttribute('class','txtUserAside');
+userNameAside.setAttribute('class', 'txtUserAside');
 const logOut = document.createElement('button');
 logOut.setAttribute('id', 'deslogueo');
-logOut.setAttribute('class','logOut');
+logOut.setAttribute('class', 'logOut');
 const img = document.createElement('img');
 const LOGOORIGEN = document.createElement('a');
 const asideSecundario = document.createElement('div');
@@ -29,12 +39,12 @@ const asideSecundario = document.createElement('div');
 // Delaración de Variables main y asignaciones de ID y/o clases
 const main = document.createElement('main');
 const div1main = document.createElement('div');
-div1main.setAttribute('id','horaMain');
+div1main.setAttribute('id', 'horaMain');
 const div2main = document.createElement('div');
 const div3main = document.createElement('div');
-div3main.setAttribute('id','div3main');
+div3main.setAttribute('id', 'div3main');
 const div4main = document.createElement('div');
-div4main.setAttribute('id','div4main');
+div4main.setAttribute('id', 'div4main');
 const horaMain = document.createElement('h3');
 const divLogo = document.createElement('div');
 const divBienvenida = document.createElement('div');
@@ -48,9 +58,13 @@ imgSaldoEyeOpen.setAttribute('id', 'mostrarSaldo');
 const divOperaciones = document.createElement('div');
 const divimgIngresarSaldo = document.createElement('div');
 divimgIngresarSaldo.setAttribute('id', 'idIngresarSaldo');
+divimgIngresarSaldo.setAttribute('class', 'zoom');
 const divimgTransferirSaldo = document.createElement('div');
+divimgTransferirSaldo.setAttribute('class', 'zoom');
 const divimgPagarServicios = document.createElement('div');
+divimgPagarServicios.setAttribute('class', 'zoom');
 const divimgComprarDolares = document.createElement('div');
+divimgComprarDolares.setAttribute('class', 'zoom');
 const imgIngresarSaldo = document.createElement('img');
 const imgTransferirSaldo = document.createElement('img');
 const imgPagarServicios = document.createElement('img');
@@ -66,6 +80,7 @@ const h3IngresarSaldo = document.createElement('h3');
 const imgAtras = document.createElement('img');
 imgAtras.setAttribute('id', 'imgAtras');
 const inputAgregarSaldo = document.createElement('input');
+inputAgregarSaldo.setAttribute('id', 'inputAgregarSaldo');
 const continuarSaldo = document.createElement('button');
 continuarSaldo.setAttribute('id', 'idContinuar');
 
@@ -205,7 +220,7 @@ bienvenidaTxt.style.color = 'white';
 //
 div4main.style.height = '60%';
 div4main.style.backgroundColor = 'white';
-div4main.style.margin= '0px 20px 20px 20px';
+div4main.style.margin = '0px 20px 20px 20px';
 div4main.style.webkitBorderRadius = '15px';
 div4main.style.boxShadow = '10px 10px 30px rgba(0, 0, 0, 0.3)';
 div4main.style.border = '0.5px solid grey';
@@ -220,10 +235,10 @@ divSaldo.style.display = 'flex';
 divSaldo.style.margin = '0px 20px 20px 20px';
 //
 txtSaldo.innerText = "$ " + saldo;
-txtSaldo.style.fontSize = '35px';
+txtSaldo.style.fontSize = '40px';
 txtSaldo.style.margin = '10px 20px 0px 0px';
 //
-imgSaldoEyeOpen.style.width="50px";
+imgSaldoEyeOpen.style.width = "50px";
 imgSaldoEyeOpen.style.height = "50px";
 imgSaldoEyeOpen.style.margin = '0px 20px 10px 20px'
 //
@@ -255,19 +270,19 @@ txtTrasferirSaldo.style.margin = '0px 0px 20px 0px';
 txtPagarServicios.style.margin = '0px 0px 20px 0px';
 txtComprarDolares.style.margin = '0px 0px 20px 0px';
 //
-divOPIngresarSaldo.style.display = 'none'; 
+divOPIngresarSaldo.style.display = 'none';
 //
 divIngresarSaldoSalir.style.display = 'flex';
 //
 h3IngresarSaldo.style.width = '90%';
 h3IngresarSaldo.innerHTML = '¿Cuánto querés ingresar?';
 h3IngresarSaldo.style.fontSize = '30px';
-h3IngresarSaldo.style.padding = '20px'; 
-h3IngresarSaldo.style.margin = '0px'; 
+h3IngresarSaldo.style.padding = '20px';
+h3IngresarSaldo.style.margin = '0px';
 //
 imgAtras.style.width = '50px';
 imgAtras.style.height = '50px';
-imgAtras.style.padding = '20px'; 
+imgAtras.style.padding = '20px';
 
 //
 inputAgregarSaldo.style.margin = '20px';
@@ -291,7 +306,6 @@ continuarSaldo.style.fontWeight = 'bold';
 continuarSaldo.style.position = 'relative';
 continuarSaldo.style.color = 'white';
 continuarSaldo.style.marginTop = '30px';
-continuarSaldo.type = 'submit';
 continuarSaldo.style.width = '95%';
 continuarSaldo.style.textAlign = 'center';
 //
@@ -308,7 +322,7 @@ login.addEventListener('click', (e) => {
     sessionStorage.removeItem("log2");
     window.location.assign('index.html');
     alert("Hasta luego!");
-    })
+})
 
 
 //Reloj Main
@@ -329,22 +343,22 @@ setInterval(reloj, 1000);
 //Mostrar y ocultar Saldo
 let mostrarSaldo = document.getElementById('mostrarSaldo');
 
-mostrarSaldo.addEventListener("mouseover", () =>{
+mostrarSaldo.addEventListener("mouseover", () => {
     imgSaldoEyeOpen.style.cursor = "pointer";
 })
-mostrarSaldo.addEventListener("mouseout", () =>{
+mostrarSaldo.addEventListener("mouseout", () => {
     imgSaldoEyeOpen.style.cursor = "default";
 })
 
 
-mostrarSaldo.addEventListener("click", () =>{
+mostrarSaldo.addEventListener("click", () => {
     if (imgSaldoEyeOpen.src.includes("ojoabierto.png")) {
         imgSaldoEyeOpen.src = 'assets/img/ojocerrado.png';
         txtSaldo.innerText = "$ ****";
 
     } else {
         imgSaldoEyeOpen.src = 'assets/img/ojoabierto.png';
-        txtSaldo.innerText = "$ " + saldo;
+        txtSaldo.innerText = "$ " + sessionStorage.getItem('saldoUsuario');
     }
 });
 
@@ -357,7 +371,7 @@ function ocultarDiv() {
     div3.style.display = 'none';
     let div4 = document.getElementById('divOPIngresarSaldo');
     div4.style.display = 'block';
-    }
+}
 
 document.getElementById('imgAtras').addEventListener("click", mostrarDiv);
 
@@ -365,28 +379,37 @@ function mostrarDiv() {
     let div3 = document.getElementById('div3main');
     div3.style.display = 'block';
     let div4 = document.getElementById('divOPIngresarSaldo');
-    div4.style.display = 'none';    
-    }
+    div4.style.display = 'none';
+}
 
-imgAtras.addEventListener("mouseover", () =>{
+imgAtras.addEventListener("mouseover", () => {
     imgAtras.style.cursor = "pointer";
 })
-mostrarSaldo.addEventListener("mouseout", () =>{
+mostrarSaldo.addEventListener("mouseout", () => {
     imgAtras.style.cursor = "default";
 })
 
-//Sumar saldo
-let sumaSaldo = document.getElementById('idcontinuar');
+//Sumar saldo (USO DE JSON)
+let botonContinuarRecarga = document.getElementById('idContinuar');
+let inputSaldo = document.getElementById('inputAgregarSaldo');
 
-login.addEventListener('submit', (e) => {
-    e.preventDefault();
-    let sumaSaldo = inputAgregarSaldo.value
-    sumaSaldo = parseFloat(sumaSaldo);
-    if (sumaSaldo > 0){
-        alert("Se añadieron $" + sumaSaldo + " a tu cuenta");
-        saldo+=sumaSaldo; 
+botonContinuarRecarga.addEventListener("click",  () => {
+    let sumarSaldo = parseFloat(inputAgregarSaldo.value);
+    if (sumarSaldo > 0 && Number.isInteger(sumarSaldo)){
+        alert("Se añadieron $" + sumarSaldo + " a tu cuenta");
+        let saldo = sessionStorage.getItem("saldoUsuario");
+        let saldoParse = JSON.parse(saldo);
+        saldoParse+=sumarSaldo;
+        alert("Saldo actual: $" + saldoParse);
+        inputAgregarSaldo.value = '';
+        txtSaldo.innerText = "$ " + saldoParse;
+        const saldoString = JSON.stringify(saldoParse);
+        sessionStorage.setItem("saldoUsuario", saldoString);
     }
     else{
-        alert("Valor invalido.");    
+        alert("Solamente puede ingresarse un valor entero.")
+
+    
     }
+
 })

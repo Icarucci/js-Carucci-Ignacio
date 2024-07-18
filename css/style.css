@@ -2,6 +2,7 @@ body {
   margin: 0px;
 }
 
+/*Modal del login*/
 
 .modal-container {
     display: flex;
@@ -48,3 +49,10 @@ body {
     font-size: 14px;
   }
 
+/* Efecto zoom*/
+.zoom {
+  transition: transform .5s;
+}
+.zoom:hover {
+  transform: scale(1.2);
+}

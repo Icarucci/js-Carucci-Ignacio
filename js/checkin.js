@@ -1,9 +1,9 @@
 function checkin() {
-    var usuarioLogueado = sessionStorage.getItem("log1");
-    var contraseñaLogueada = sessionStorage.getItem("log2");
-    var usuarioGuardado = localStorage.getItem("usuariolog");
-    var contraseñaGuardada = localStorage.getItem("contraseñalog");
-    var currentPage = window.location.pathname;
+    const usuarioLogueado = sessionStorage.getItem("log1");
+    const contraseñaLogueada = sessionStorage.getItem("log2");
+    const usuarioGuardado = localStorage.getItem("usuariolog");
+    const contraseñaGuardada = localStorage.getItem("contraseñalog");
+    const currentPage = window.location.pathname;
 
 
 if (usuarioLogueado === usuarioGuardado && contraseñaLogueada === contraseñaGuardada && currentPage.includes('principal.html'))
