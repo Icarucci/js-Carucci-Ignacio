@@ -150,17 +150,27 @@ close.addEventListener('click', () => {
   modal_container.classList.remove('show');
 });
 
-//Evento crear usuario
+//Evento crear usuario Sweet Alert
 let formCrearUsuario = document.getElementById('formCrearUsuario');
 const infoInputUsuario = document.getElementById('nuevoUsuario');
 const infoInputContraseña = document.getElementById('nuevaContraseña');
 
-formCrearUsuario.addEventListener("submit", () => {
+formCrearUsuario.addEventListener("submit", (e) => {
+    e.preventDefault();
     infoInputUsuario.value
     infoInputContraseña.value
     localStorage.setItem("usuariolog", infoInputUsuario.value);
     localStorage.setItem("contraseñalog", infoInputContraseña.value);
-    alert("Nuevo usuario creado.");
+    swal({
+      title: "Nuevo usuario creado!",
+      text: "Serás redireccionado en unos segundos",
+      icon: "success",
+      buttons: false,
+      timer: 3500
+  })
+    .then(() => {
+    document.getElementById('formCrearUsuario').submit();
+  }); 
     })
 
 
