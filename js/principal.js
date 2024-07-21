@@ -697,10 +697,10 @@ botonContinuarTransferencia1.addEventListener("click", () => {
     let saldoParse = JSON.parse(saldo);
 
     if (restarSaldo > 0 && Number.isInteger(restarSaldo)) {
-        if (saldoParse > restarSaldo) {      
+        if (saldoParse >= restarSaldo) {      
             swal({
-            title: "Éxito!",
-            text: "Se transfirieron " + restarSaldo,
+            title: "Transferencia realizada!",
+            text: "Se transfirieron $ " + restarSaldo,
             icon: "success",
             button: "Aceptar"
             })
@@ -792,7 +792,12 @@ agregarContactoForm.addEventListener('submit', (e) => {
     const h3Contacto = document.createElement('h3');
     h3Contacto.innerText = persona1.apodo + " || " +  persona1.telefono;
     h3Contacto.addEventListener('click', () => {
-        alert("Detalles del contacto:\nNombre: " + persona1.nombre + "\nTeléfono: " + persona1.telefono);
+        
+        swal({
+            title: "Detalles del contacto:",
+            text: "Nombre: " + persona1.nombre + "\nTeléfono: " + persona1.telefono,
+            button: "Aceptar",
+          });
         ocultardivOPTransferirSaldo()
     });
     divh3Contacto.appendChild(h3Contacto);
