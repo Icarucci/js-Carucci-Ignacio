@@ -115,6 +115,20 @@ const h3AgregarContacto = document.createElement('h3');
 const imgAgregarContacto = document.createElement('img');
 const divListaContacto = document.createElement('div');
 divListaContacto.setAttribute('id', 'divListaContacto');
+const divTransferirAcontacto = document.createElement('div');
+divTransferirAcontacto.setAttribute('id', 'divTransferirAcontacto');
+const divTransferirAcontactoh3 = document.createElement('div');
+const imgAtras3 = document.createElement('img');
+imgAtras3.setAttribute('id', 'imgAtras3');
+const h3TransferirAcontacto = document.createElement('h3');
+const inputTransferirAcontacto = document.createElement('input');
+inputTransferirAcontacto.setAttribute('id', 'inputTransferirAcontacto');
+const botonContinuarTransferencia = document.createElement('button');
+botonContinuarTransferencia.setAttribute('id', 'botonContinuarTransferencia');
+
+
+
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -205,6 +219,18 @@ imgAgregarContacto.src = 'assets/img/agregarContacto.png';
 imgAgregarContacto.alt = 'agregarContacto';
 divAgregarContacto.appendChild(h3AgregarContacto);
 divOPTransferirSaldo.appendChild(divListaContacto);
+div4main.appendChild(divTransferirAcontacto);
+divTransferirAcontacto.appendChild(divTransferirAcontactoh3);
+divTransferirAcontactoh3.appendChild(h3TransferirAcontacto);
+divTransferirAcontactoh3.appendChild(imgAtras3);
+imgAtras3.src = 'assets/img/atras.png';
+imgAtras3.alt = 'Atras';
+divTransferirAcontacto.appendChild(inputTransferirAcontacto);
+divTransferirAcontacto.appendChild(botonContinuarTransferencia);
+
+
+
+
 
 //Asignacion DOM al AsideSecundario
 containerDiv.appendChild(asideSecundario);
@@ -253,6 +279,7 @@ logOut.style.webkitBorderRadius = '20px';
 main.style.flex = '1';
 main.style.background = 'linear-gradient(to bottom,  #009ee3 0%, #009ee3 60%, #FFFFFF 100%)';
 main.style.padding = '0px';
+main.style.minHeight = '100vh';
 div1main.style.height = '5%';
 div1main.style.backgroundColor = '#004a75';
 div1main.style.padding = '10px 20px 10px 20px';
@@ -273,7 +300,6 @@ bienvenidaTxt.style.color = 'white';
 //
 
 //
-div4main.style.height = '60%';
 div4main.style.backgroundColor = 'white';
 div4main.style.margin = '0px 20px 20px 20px';
 div4main.style.webkitBorderRadius = '15px';
@@ -326,6 +352,7 @@ txtPagarServicios.style.margin = '0px 0px 20px 0px';
 txtComprarDolares.style.margin = '0px 0px 20px 0px';
 //
 divOPIngresarSaldo.style.display = 'none';
+divOPIngresarSaldo.style.overflow = 'auto';
 //
 divIngresarSaldoSalir.style.display = 'flex';
 //
@@ -399,6 +426,7 @@ divListaContacto.style.boxShadow = '10px 10px 30px rgba(0, 0, 0, 0.3)';
 divListaContacto.style.border = '0.5px solid grey';
 divListaContacto.style.margin = '20px';
 divListaContacto.style.padding = '20px';
+divListaContacto.style.overflowY = 'auto';
 //
 asideSecundario.style.backgroundColor = '#f4f4f4';
 asideSecundario.style.padding = '20px';
@@ -435,6 +463,9 @@ h3Telefono.style.fontSize = '20px';
 h3Telefono.style.padding = '0px';
 h3Telefono.style.margin = '30px 0pc 10px 0px';
 //
+inputTelefono.type = "number";
+
+//
 botonAgregarNuevoContacto.style.webkitBorderRadius = '5px';
 botonAgregarNuevoContacto.style.margin = '0px 20px 20px 20px';
 botonAgregarNuevoContacto.innerText = 'Agregar';
@@ -448,6 +479,44 @@ botonAgregarNuevoContacto.style.position = 'relative';
 botonAgregarNuevoContacto.style.color = 'white';
 botonAgregarNuevoContacto.style.marginTop = '30px';
 botonAgregarNuevoContacto.style.textAlign = 'center';
+//
+divTransferirAcontacto.style.display = 'none';
+//
+divTransferirAcontactoh3.style.display = 'flex';
+//
+imgAtras3.style.width = '50px';
+imgAtras3.style.height = '50px';
+imgAtras3.style.padding = '20px';
+//
+h3TransferirAcontacto.style.width = '90%';
+h3TransferirAcontacto.innerHTML = '¿Cuánto dinero querés transferir?';
+h3TransferirAcontacto.style.fontSize = '30px';
+h3TransferirAcontacto.style.padding = '20px';
+h3TransferirAcontacto.style.margin = '0px';
+//
+inputTransferirAcontacto.style.margin = '20px';
+inputTransferirAcontacto.style.width = '94%';
+inputTransferirAcontacto.style.height = '140px';
+inputTransferirAcontacto.type = 'number';
+inputTransferirAcontacto.placeholder = '$ 0';
+inputTransferirAcontacto.style.textAlign = 'center';
+inputTransferirAcontacto.style.fontSize = '50px';
+inputTransferirAcontacto.style.borderWidth = '0px';
+//
+botonContinuarTransferencia.style.webkitBorderRadius = '5px';
+botonContinuarTransferencia.style.margin = '0px 20px 20px 20px';
+botonContinuarTransferencia.innerText = 'Continuar';
+botonContinuarTransferencia.style.background = '#009ee3';
+botonContinuarTransferencia.style.cursor = 'pointer';
+botonContinuarTransferencia.style.border = 'none';
+botonContinuarTransferencia.style.padding = '15px 15px';
+botonContinuarTransferencia.style.fontsize = '20px';
+botonContinuarTransferencia.style.fontWeight = 'bold';
+botonContinuarTransferencia.style.position = 'relative';
+botonContinuarTransferencia.style.color = 'white';
+botonContinuarTransferencia.style.marginTop = '30px';
+botonContinuarTransferencia.style.width = '95%';
+botonContinuarTransferencia.style.textAlign = 'center';
 //
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -551,13 +620,29 @@ function mostrarDiv2() {
     let div6 = document.getElementById('divOPTransferirSaldo');
     div6.style.display = 'none';
     let div7 = document.getElementById('divNuevoContacto');
-    divNuevoContacto.style.display = 'none';
+    div7.style.display = 'none';
 }
 
 imgAtras2.addEventListener("mouseover", () => {
     imgAtras2.style.cursor = "pointer";
 })
 
+// Ocultar y Mostrar: divOPTransferirSaldo y divTransferirAcontacto
+function ocultardivOPTransferirSaldo() {
+    let div5 = document.getElementById('divOPTransferirSaldo');
+    div5.style.display = 'none';
+    let div6 = document.getElementById('divTransferirAcontacto');
+    div6.style.display = 'block';
+}
+document.getElementById('imgAtras3').addEventListener("click", ocultardivTransferirAcontacto);
+
+function ocultardivTransferirAcontacto() {
+    let div7 = document.getElementById('divTransferirAcontacto');
+    div7.style.display = 'none';
+    let div6 = document.getElementById('divOPTransferirSaldo');
+    div6.style.display = 'block';
+
+}
 
 //Sumar saldo (USO DE JSON)
 let botonContinuarRecarga = document.getElementById('idContinuar');
@@ -601,6 +686,61 @@ botonContinuarRecarga.addEventListener("click", () => {
     }
 });
 
+//
+//Transferir dinero a contacto  (USO DE JSON)
+let botonContinuarTransferencia1 = document.getElementById('botonContinuarTransferencia');
+let inputTransferirAcontacto2 = document.getElementById('inputTransferirAcontacto');
+
+botonContinuarTransferencia1.addEventListener("click", () => {
+    let restarSaldo = parseFloat(inputTransferirAcontacto2.value);
+    let saldo = sessionStorage.getItem("saldoUsuario");
+    let saldoParse = JSON.parse(saldo);
+
+    if (restarSaldo > 0 && Number.isInteger(restarSaldo)) {
+        if (saldoParse > restarSaldo) {      
+            swal({
+            title: "Éxito!",
+            text: "Se transfirieron " + restarSaldo,
+            icon: "success",
+            button: "Aceptar"
+            })
+            .then(() => {
+                let saldo = sessionStorage.getItem("saldoUsuario");
+                let saldoParse = JSON.parse(saldo);
+                saldoParse -= restarSaldo;
+                swal({
+                    title: "Saldo Actual",
+                    text: "Tu saldo es de $" + saldoParse,
+                    icon: "info",
+                    button: "Aceptar",
+                })
+                .then(() => {
+                    inputTransferirAcontacto2.value = '';
+                    txtSaldo.innerText = "$ " + saldoParse;
+                    const saldoString = JSON.stringify(saldoParse);
+                    sessionStorage.setItem("saldoUsuario", saldoString);
+                 });
+            });
+        }
+        else {
+            swal({
+                title: "Error!",
+                text: "Saldo insuficiente",
+                icon: "error",
+                button: "Aceptar"
+            });
+        }
+    } 
+    else {
+        swal({
+            title: "Error!",
+            text: "Solamente puede ingresarse un valor entero.",
+            icon: "error",
+            button: "Aceptar"
+        });
+    }
+});
+
 //Agregar Contacto
 //Constructor
 
@@ -620,8 +760,6 @@ function agregarContacto(apodo, nombre, telefono) {
 
 
 // Instancia del objeto persona
-
-
 const arrayContacto = [];
 let agregarContactoForm = document.getElementById('agregarContactoForm');
 
@@ -630,16 +768,60 @@ agregarContactoForm.addEventListener('submit', (e) => {
     const apodoInput = inputApodo.value
     const nombreInput = inputNombreCompleto.value
     const telefonoInput = inputTelefono.value
+    if (!apodoInput || !nombreInput || !telefonoInput) {
+        swal({
+            title: "Todos los campos son obligatorios",
+            text: "Intenta nuevamente",
+            icon: "warning",
+            button: "Aceptar",
+          });
+    }
+    else {
     const persona1 = new agregarContacto(apodoInput,nombreInput,telefonoInput);
-    alert("Nuevo contacto Agregado!\n \n" + persona1.apodo + "\n" + persona1.telefono);
+    swal({
+        title: "Nuevo contacto agregado",
+        text: persona1.nombre + " se agregó a tu lista de contactos",
+        icon: "success",
+        button: "Aceptar",
+      });
     arrayContacto.push(persona1);
+    let div7 = document.getElementById('divNuevoContacto');
+    div7.style.display = 'none';
     const divh3Contacto = document.createElement('div');
     divListaContacto.appendChild(divh3Contacto);
     const h3Contacto = document.createElement('h3');
-    h3Contacto.innerText = persona1.apodo + " " +  persona1.telefono;
+    h3Contacto.innerText = persona1.apodo + " || " +  persona1.telefono;
+    h3Contacto.addEventListener('click', () => {
+        alert("Detalles del contacto:\nNombre: " + persona1.nombre + "\nTeléfono: " + persona1.telefono);
+        ocultardivOPTransferirSaldo()
+    });
     divh3Contacto.appendChild(h3Contacto);
+    h3Contacto.style.margin = '0px';
+    h3Contacto.style.cursor = 'pointer';
+    const BotonborrarContacto = document.createElement('button');
+    BotonborrarContacto.innerText = 'Eliminar';
+    BotonborrarContacto.addEventListener('click', () => {
+        divListaContacto.removeChild(divh3Contacto);
+    });
+    divh3Contacto.appendChild(BotonborrarContacto);
     divh3Contacto.style.width = "50%";
+    divh3Contacto.style.display = "flex";
+    divh3Contacto.style.justifyContent = "space-between";
+    divh3Contacto.style.alignItems = 'center';
+    divh3Contacto.style.margin = '10px 0px';
+    BotonborrarContacto.style.webkitBorderRadius = '10px';
+    BotonborrarContacto.style.background = 'red';
+    BotonborrarContacto.style.cursor = 'pointer';
+    BotonborrarContacto.style.border = 'none';
+    BotonborrarContacto.style.padding = '2px 10px';
+    BotonborrarContacto.style.fontSize = '15px';
+    BotonborrarContacto.style.fontWeight = 'bold';
+    BotonborrarContacto.style.color = 'black';
+    BotonborrarContacto.style.textAlign = 'center';
+    BotonborrarContacto.style.alignSelf = 'center';
     inputApodo.value = '';
     inputNombreCompleto.value = '';
     inputTelefono.value = '';
+}
 })
+
