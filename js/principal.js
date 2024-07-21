@@ -40,12 +40,16 @@ divNuevoContacto.setAttribute('id', 'divNuevoContacto');
 const h2NuevoContacto = document.createElement('h2');
 const divFormNuevoContacto = document.createElement('div');
 const formNuevoContacto = document.createElement('form');
+formNuevoContacto.setAttribute('id', 'agregarContactoForm');
 const h3Apodo = document.createElement('h3');
 const inputApodo = document.createElement('input');
+inputApodo.setAttribute('id', 'inputApodo');
 const h3NombreCompleto = document.createElement('h3');
 const inputNombreCompleto = document.createElement('input');
+inputNombreCompleto.setAttribute('id', 'inputNombreCompleto');
 const h3Telefono = document.createElement('h3');
 const inputTelefono = document.createElement('input');
+inputTelefono.setAttribute('id', 'inputTelefono');
 const divBotonAgregarNuevoContacto = document.createElement('div');
 const botonAgregarNuevoContacto = document.createElement('button');
 
@@ -110,6 +114,7 @@ divAgregarContacto.setAttribute('id', 'divAgregarContacto');
 const h3AgregarContacto = document.createElement('h3');
 const imgAgregarContacto = document.createElement('img');
 const divListaContacto = document.createElement('div');
+divListaContacto.setAttribute('id', 'divListaContacto');
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -197,7 +202,7 @@ imgAtras2.alt = 'Atras';
 divOPTransferirSaldo.appendChild(divAgregarContacto);
 divAgregarContacto.appendChild(imgAgregarContacto);
 imgAgregarContacto.src = 'assets/img/agregarContacto.png';
-imgAgregarContacto.alt = 'Atras';
+imgAgregarContacto.alt = 'agregarContacto';
 divAgregarContacto.appendChild(h3AgregarContacto);
 divOPTransferirSaldo.appendChild(divListaContacto);
 
@@ -389,7 +394,7 @@ imgAgregarContacto.style.width = '30px';
 imgAgregarContacto.style.height = '30px';
 imgAgregarContacto.style.padding = '10px 0px 0px 20px';
 //
-divListaContacto.style.display = 'flex';
+divListaContacto.style.display = 'block';
 divListaContacto.style.boxShadow = '10px 10px 30px rgba(0, 0, 0, 0.3)';
 divListaContacto.style.border = '0.5px solid grey';
 divListaContacto.style.margin = '20px';
@@ -443,6 +448,8 @@ botonAgregarNuevoContacto.style.position = 'relative';
 botonAgregarNuevoContacto.style.color = 'white';
 botonAgregarNuevoContacto.style.marginTop = '30px';
 botonAgregarNuevoContacto.style.textAlign = 'center';
+//
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Evento Deslogueo
@@ -612,10 +619,27 @@ function agregarContacto(apodo, nombre, telefono) {
 }
 
 
-/*/ Instancia del objeto persona
-const persona1 = new agregarContacto(
-    prompt("Ingrese el apodo"),
-    prompt("Ingrese el nombre completo"),
-    prompt("Ingrese el Telefono"));
-alert("Nuevo contacto Agregado!\n \n" + persona1.apodo + "\n" + persona1.telefono);
-arrayContacto.push(persona1);*/
+// Instancia del objeto persona
+
+
+const arrayContacto = [];
+let agregarContactoForm = document.getElementById('agregarContactoForm');
+
+agregarContactoForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const apodoInput = inputApodo.value
+    const nombreInput = inputNombreCompleto.value
+    const telefonoInput = inputTelefono.value
+    const persona1 = new agregarContacto(apodoInput,nombreInput,telefonoInput);
+    alert("Nuevo contacto Agregado!\n \n" + persona1.apodo + "\n" + persona1.telefono);
+    arrayContacto.push(persona1);
+    const divh3Contacto = document.createElement('div');
+    divListaContacto.appendChild(divh3Contacto);
+    const h3Contacto = document.createElement('h3');
+    h3Contacto.innerText = persona1.apodo + " " +  persona1.telefono;
+    divh3Contacto.appendChild(h3Contacto);
+    divh3Contacto.style.width = "50%";
+    inputApodo.value = '';
+    inputNombreCompleto.value = '';
+    inputTelefono.value = '';
+})
