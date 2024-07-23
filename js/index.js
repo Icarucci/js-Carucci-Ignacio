@@ -50,7 +50,7 @@ cuerpo.style.height = '100vh';
 //Asignacion DOM al Header
 cabecera.appendChild(navegacion);
 navegacion.appendChild(nav);
-LOGOORIGEN.href = '/';
+LOGOORIGEN.href = 'index.html';
 LOGOORIGEN.appendChild(img);
 img.src = 'assets/img/logo.png';
 img.alt = 'Pago Mis Deudas Logo';
@@ -157,10 +157,19 @@ const infoInputContraseña = document.getElementById('nuevaContraseña');
 
 formCrearUsuario.addEventListener("submit", (e) => {
     e.preventDefault();
-    infoInputUsuario.value
-    infoInputContraseña.value
-    localStorage.setItem("usuariolog", infoInputUsuario.value);
-    localStorage.setItem("contraseñalog", infoInputContraseña.value);
+    const usuario = infoInputUsuario.value;
+    const contraseña = infoInputContraseña.value;
+    if (!usuario || !contraseña) {
+      swal({
+          title: "Error!",
+          text: "Por favor, completá todos los campos.",
+          icon: "error",
+          button: "Aceptar",
+      });
+      return;
+    }
+    localStorage.setItem("usuariolog", usuario);
+    localStorage.setItem("contraseñalog", contraseña);
     swal({
       title: "Nuevo usuario creado!",
       text: "Serás redireccionado en unos segundos",

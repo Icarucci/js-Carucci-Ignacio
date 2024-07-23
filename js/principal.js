@@ -139,7 +139,7 @@ body.appendChild(containerDiv);
 containerDiv.appendChild(aside)
 aside.appendChild(divlog);
 aside.appendChild(div1);
-LOGOORIGEN.href = '/index.html';
+LOGOORIGEN.href = 'index.html';
 LOGOORIGEN.appendChild(img);
 img.src = 'assets/img/logo.png';
 img.alt = 'Pago Mis Deudas Logo';
