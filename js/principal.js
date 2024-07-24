@@ -82,6 +82,7 @@ const divimgTransferirSaldo = document.createElement('div');
 divimgTransferirSaldo.setAttribute('id', 'idTransferirSaldo');
 divimgTransferirSaldo.setAttribute('class', 'zoom');
 const divimgPagarServicios = document.createElement('div');
+divimgPagarServicios.setAttribute('id', 'idPagarServicios');
 divimgPagarServicios.setAttribute('class', 'zoom');
 const divimgComprarDolares = document.createElement('div');
 divimgComprarDolares.setAttribute('class', 'zoom');
@@ -125,7 +126,46 @@ const inputTransferirAcontacto = document.createElement('input');
 inputTransferirAcontacto.setAttribute('id', 'inputTransferirAcontacto');
 const botonContinuarTransferencia = document.createElement('button');
 botonContinuarTransferencia.setAttribute('id', 'botonContinuarTransferencia');
-
+const divOPpagarServicios = document.createElement('div');
+divOPpagarServicios.setAttribute('id', 'divOPpagarServicios');
+const divPagarServiciosSalir = document.createElement('div');
+const h3PagarServicios = document.createElement('h3');
+const imgAtras4 = document.createElement('img');
+imgAtras4.setAttribute('id', 'imgAtras4');
+const divPagarServiciosPagos = document.createElement('div');
+const divPagarServiciosCant = document.createElement('div');
+const h4PagarServiciosCant = document.createElement('h4');
+const inputPagarServiciosCant = document.createElement('input');
+inputPagarServiciosCant.setAttribute('id', 'inputPagarServiciosCant');
+const divbotonPagarServiciosCant = document.createElement('div');
+const botonPagarServiciosCant = document.createElement('button');
+botonPagarServiciosCant.setAttribute('id', 'botonPagarServiciosCant');
+const divPagarServiciosCuentas = document.createElement('div');
+const divPagarServiciosCuentasTitulo = document.createElement('div');
+const h4PagarServiciosCuentas = document.createElement('h4');
+const h4PagarServiciosCuentas2 = document.createElement('h4');
+const divPagarServiciosCuentasLista = document.createElement('div');
+const divPagarServiciosCuentasTotal = document.createElement('div');
+const divPagarServiciosCuentasTotaltxt = document.createElement('div');
+const divPagarServiciosCuentasTotalNum = document.createElement('div');
+const h4PagarServiciosCuentasTotaltxt = document.createElement('h4');
+const h4PagarServiciosCuentasTotalNum = document.createElement('h4');
+const divPagarServiciosCuentasPagar = document.createElement('div');
+divPagarServiciosCuentasPagar.setAttribute('id', 'divPagarServiciosCuentasPagar');
+const botonPagarServiciosCuentas = document.createElement('button');
+const divModalPagarServicios = document.createElement('div');
+divModalPagarServicios.setAttribute('id', 'divModalPagarServicios');
+const divModalPagarServiciosOperacion = document.createElement('div');
+const formModalPagarServiciosOperacion = document.createElement('form');
+const h4ModalPagarServiciosServicios = document.createElement('h4');
+const inputModalPagarServiciosServicios = document.createElement('input');
+inputModalPagarServiciosServicios.setAttribute('id', 'inputModalPagarServiciosServicios');
+const h4ModalPagarServiciosMonto = document.createElement('h4');
+const inputModalPagarServiciosMonto = document.createElement('input');
+inputModalPagarServiciosMonto.setAttribute('id', 'inputModalPagarServiciosMonto');
+const divbotonModalPagarServicios= document.createElement('div');
+divbotonModalPagarServicios.setAttribute('id', 'divbotonModalPagarServicios');
+const botonModalPagarServicios = document.createElement('button');
 
 
 
@@ -228,7 +268,40 @@ imgAtras3.alt = 'Atras';
 divTransferirAcontacto.appendChild(inputTransferirAcontacto);
 divTransferirAcontacto.appendChild(botonContinuarTransferencia);
 
-
+//Pagar Servicios
+div4main.appendChild(divOPpagarServicios);
+divOPpagarServicios.appendChild(divPagarServiciosSalir);
+divPagarServiciosSalir.appendChild(h3PagarServicios);
+divPagarServiciosSalir.appendChild(imgAtras4);
+imgAtras4.src = 'assets/img/atras.png';
+imgAtras4.alt = 'Atras';
+divOPpagarServicios.appendChild(divPagarServiciosPagos);
+divPagarServiciosPagos.appendChild(divPagarServiciosCant);
+divPagarServiciosCant.appendChild(h4PagarServiciosCant);
+divPagarServiciosCant.appendChild(inputPagarServiciosCant);
+divPagarServiciosCant.appendChild(divbotonPagarServiciosCant);
+divbotonPagarServiciosCant.appendChild(botonPagarServiciosCant);
+divPagarServiciosPagos.appendChild(divPagarServiciosCuentas);
+divPagarServiciosCuentas.appendChild(divPagarServiciosCuentasTitulo);
+divPagarServiciosCuentasTitulo.appendChild(h4PagarServiciosCuentas);
+divPagarServiciosCuentasTitulo.appendChild(h4PagarServiciosCuentas2);
+divPagarServiciosCuentas.appendChild(divPagarServiciosCuentasLista);
+divPagarServiciosCuentas.appendChild(divPagarServiciosCuentasTotal);
+divPagarServiciosCuentasTotal.appendChild(divPagarServiciosCuentasTotaltxt);
+divPagarServiciosCuentasTotaltxt.appendChild(h4PagarServiciosCuentasTotaltxt);
+divPagarServiciosCuentasTotal.appendChild(divPagarServiciosCuentasTotalNum);
+divPagarServiciosCuentasTotalNum.appendChild(h4PagarServiciosCuentasTotalNum);
+divPagarServiciosCuentas.appendChild(divPagarServiciosCuentasPagar);
+divPagarServiciosCuentasPagar.appendChild(botonPagarServiciosCuentas);
+body.appendChild(divModalPagarServicios);
+divModalPagarServicios.appendChild(divModalPagarServiciosOperacion);
+divModalPagarServiciosOperacion.appendChild(formModalPagarServiciosOperacion);
+formModalPagarServiciosOperacion.appendChild(h4ModalPagarServiciosServicios);
+formModalPagarServiciosOperacion.appendChild(inputModalPagarServiciosServicios);
+formModalPagarServiciosOperacion.appendChild(h4ModalPagarServiciosMonto);
+formModalPagarServiciosOperacion.appendChild(inputModalPagarServiciosMonto);
+formModalPagarServiciosOperacion.appendChild(divbotonModalPagarServicios);
+divbotonModalPagarServicios.appendChild(botonModalPagarServicios);
 
 
 
@@ -518,7 +591,115 @@ botonContinuarTransferencia.style.marginTop = '30px';
 botonContinuarTransferencia.style.width = '95%';
 botonContinuarTransferencia.style.textAlign = 'center';
 //
+divOPpagarServicios.style.display = 'none';
+//
+divPagarServiciosSalir.style.display = 'flex';
+//
+h3PagarServicios.style.width = '90%';
+h3PagarServicios.innerHTML = 'Pagar Servicios';
+h3PagarServicios.style.fontSize = '30px';
+h3PagarServicios.style.padding = '20px';
+h3PagarServicios.style.margin = '0px';
+//
+imgAtras4.style.width = '50px';
+imgAtras4.style.height = '50px';
+imgAtras4.style.padding = '20px';
+//
+divPagarServiciosPagos.style.display = 'flex';
+//
+divPagarServiciosCant.style.width = '20%';
+divPagarServiciosCant.style.textAlign = 'center';
+divPagarServiciosCant.style.alignItems = 'center';
+//
+divPagarServiciosCuentas.style.width = '80%';
+//
+h4PagarServiciosCant.innerText = 'Ingrese cantidad de servicios a abonar (Max 9)';
+h4PagarServiciosCant.style.margin = '20px';
+//
+inputPagarServiciosCant.style.margin = '0px 20px 20px 20px';
+inputPagarServiciosCant.style.background = '#009ee3';
+inputPagarServiciosCant.style.color = 'white';
+inputPagarServiciosCant.style.width = '30px';
+inputPagarServiciosCant.style.height = '30px';
+inputPagarServiciosCant.style.webkitBorderRadius = '30px';
+inputPagarServiciosCant.style.textAlign = 'center';
+inputPagarServiciosCant.style.fontSize = '20px';
+inputPagarServiciosCant.type = 'number';
+inputPagarServiciosCant.min = '1';
+inputPagarServiciosCant.max = '9';
+//
+divbotonPagarServiciosCant.style.margin = '0px 20px 20px 20px';
+//
+botonPagarServiciosCant.innerText = 'Siguiente';
+botonPagarServiciosCant.style.background = '#009ee3';
+botonPagarServiciosCant.style.color = 'white';
+botonPagarServiciosCant.style.webkitBorderRadius = '30px';
+botonPagarServiciosCant.style.padding = '10px';
+//
+divPagarServiciosCuentasTitulo.style.display = 'flex';
+//
+h4PagarServiciosCuentas.innerText = 'Servicio';
+h4PagarServiciosCuentas.style.width = '50%';
+h4PagarServiciosCuentas.style.marginLeft = '50px';
+//
+h4PagarServiciosCuentas2.innerText = 'Valor'
+h4PagarServiciosCuentas2.style.width = '50%';
+//
+divPagarServiciosCuentasTotal.style.display = 'flex';
+//
+divPagarServiciosCuentasTotaltxt.style.width = '50%';
+divPagarServiciosCuentasTotaltxt.style.marginLeft = '50px';
+h4PagarServiciosCuentasTotaltxt.innerHTML = "Total";
+h4PagarServiciosCuentasTotaltxt.style.textAlign ='end';
+h4PagarServiciosCuentasTotaltxt.style.paddingRight ='20px';
+//
+divPagarServiciosCuentasTotalNum.style.width = '50%';
+h4PagarServiciosCuentasTotalNum.innerHTML = '$ ';
+//
+divPagarServiciosCuentasPagar.style.textAlign ='center';
+//
+botonPagarServiciosCuentas.innerText = 'PAGAR';
+botonPagarServiciosCuentas.style.background = '#009ee3';
+botonPagarServiciosCuentas.style.color = 'white';
+botonPagarServiciosCuentas.style.webkitBorderRadius = '30px';
+botonPagarServiciosCuentas.style.width = '50%';
+botonPagarServiciosCuentas.style.padding = '10px';
+//
 
+divModalPagarServicios.style.display = "none";
+divModalPagarServicios.style.position = "fixed";
+divModalPagarServicios.style.zIndex = "1";
+divModalPagarServicios.style.left = "0";
+divModalPagarServicios.style.top = "0";
+divModalPagarServicios.style.width = "100%";
+divModalPagarServicios.style.height = "100%";
+divModalPagarServicios.style.overflow = "auto";
+divModalPagarServicios.style.backgroundColor = "rgba(0, 0, 0, 0.4)";
+//
+divModalPagarServiciosOperacion.style.display = "block";
+divModalPagarServiciosOperacion.style.backgroundColor = "white";
+divModalPagarServiciosOperacion.style.position = "absolute";
+divModalPagarServiciosOperacion.style.top = "50%";
+divModalPagarServiciosOperacion.style.left = "50%";
+divModalPagarServiciosOperacion.style.transform = "translate(-50%, -50%)";
+divModalPagarServiciosOperacion.style.padding = "20px";
+divModalPagarServiciosOperacion.style.boxShadow = "0 5px 15px rgba(0,0,0,0.3)"
+divModalPagarServiciosOperacion.style.webkitBorderRadius = "30px";
+//
+divModalPagarServiciosOperacion.style.textAlign ='center';
+//
+h4ModalPagarServiciosServicios.innerText = 'Ingrese el nombre del servicio';
+//
+h4ModalPagarServiciosMonto.innerText = 'Ingrese el monto a abonar';
+h4ModalPagarServiciosMonto.style.marginTop = '50px';
+//
+botonModalPagarServicios.style.marginTop = '50px';
+botonModalPagarServicios.innerText = 'Siguiente';
+botonModalPagarServicios.style.background = '#009ee3';
+botonModalPagarServicios.style.color = 'white';
+botonModalPagarServicios.style.webkitBorderRadius = '30px';
+botonModalPagarServicios.style.width = '50%';
+botonModalPagarServicios.style.padding = '10px';
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Evento Deslogueo
@@ -643,6 +824,29 @@ function ocultardivTransferirAcontacto() {
     div6.style.display = 'block';
 
 }
+// Ocultar y Mostrar: divOPpagarServicios
+document.getElementById('idPagarServicios').addEventListener("click", ocultarDivPagarServicios);
+
+function ocultarDivPagarServicios() {
+    let div3 = document.getElementById('div3main');
+    div3.style.display = 'none';
+    let div4 = document.getElementById('divOPpagarServicios');
+    div4.style.display = 'block';
+}
+
+document.getElementById('imgAtras4').addEventListener("click", mostrarDivPagarServicios);
+
+function mostrarDivPagarServicios() {
+    let div3 = document.getElementById('div3main');
+    div3.style.display = 'block';
+    let div4 = document.getElementById('divOPpagarServicios');
+    div4.style.display = 'none';
+}
+
+imgAtras.addEventListener("mouseover", () => {
+    imgAtras.style.cursor = "pointer";
+})
+
 
 //Sumar saldo (USO DE JSON)
 let botonContinuarRecarga = document.getElementById('idContinuar');
@@ -830,3 +1034,93 @@ agregarContactoForm.addEventListener('submit', (e) => {
 }
 })
 
+
+//Pagar servicios
+
+let servicios = document.getElementById('inputPagarServiciosCant');
+
+document.getElementById('botonPagarServiciosCant').addEventListener("click", () => {
+    let serviciosParse = parseInt(servicios.value);
+    if (serviciosParse > 0 && serviciosParse < 9) {
+        mostrarModalPagarServicios(serviciosParse);
+    } else {
+        swal({
+            title: "Cantidad incorrecta",
+            text: "Debes elegir un número entre 1 y 9",
+            icon: "warning",
+            button: "Aceptar",
+        });
+    }
+});
+
+function mostrarModalPagarServicios(serviciosParse) {
+    let divModalPagarServicios = document.getElementById('divModalPagarServicios');
+    divModalPagarServicios.style.display = 'block';
+
+    document.getElementById('divbotonModalPagarServicios').addEventListener("click", () => {
+        
+        let saldoUsuario = parseFloat(sessionStorage.getItem('saldoUsuario'));
+
+        for (let i = 0; i < serviciosParse; i++) {
+            let servicio1 = document.getElementById('inputModalPagarServiciosServicios').value;
+            let valor1 = parseFloat(document.getElementById('inputModalPagarServiciosMonto').value);
+            if (valor1 > 0 && valor1 < saldoUsuario) {
+                saldoUsuario -= valor1;    
+
+            } else if (valor1 <= 0) {
+                alert("El importe debe ser positivo.");
+            } else if (valor1 > saldoUsuario) {
+                alert("Saldo insuficiente.");
+            } else {
+                alert("Valor incorrecto.");
+            }
+        }
+        const saldoString = JSON.stringify(saldoUsuario);
+        sessionStorage.setItem("saldoUsuario", saldoString);
+        txtSaldo.innerText = "$ " + saldoUsuario;
+        alert("Saldo actual: $" + saldoUsuario);
+        alert("Gracias por utilizar el sistema de pagos!");
+        document.getElementById('inputModalPagarServiciosServicios').value = '';
+        document.getElementById('inputModalPagarServiciosMonto').value = '';
+        document.getElementById('inputPagarServiciosCant').value = '';
+        divModalPagarServicios.style.display = 'none';
+    });
+}
+
+
+/*/function pagarServicios() {
+    let servicios = parseInt(document.getElementById('inputPagarServiciosCant').value);
+
+    if (servicios > 0) {
+
+        for (let i = 0; i < servicios; i++) {
+            let servicio1 = document.getElementById('inputModalPagarServiciosServicios').value;
+            let valor1 = parseFloat(document.getElementById('inputModalPagarServiciosMonto').value);
+
+            if (valor1 > 0 && valor1 < saldo) {
+                saldo -= valor1;
+                alert("Pagaste " + servicio1 + " por un total de: $" + valor1);
+                alert("Saldo actual: $" + saldo);
+            }
+            else if (valor1 < 0) {
+                alert("El importe debe ser positivo.");
+            }
+            else if (valor1 > 0 && valor1 > saldo) {
+                alert("Saldo insuficiente.");
+            }
+            else {
+                alert("Valor incorrecto.");
+            }
+        }
+        alert("Gracias por utilizar el sistema de pagos!")
+
+    }
+    else if (servicios = 0) {
+        alert("Ningun servicio a abonar.");
+
+    }
+    else {
+        alert("Valor incorrecto.")
+
+    }
+}//*/
