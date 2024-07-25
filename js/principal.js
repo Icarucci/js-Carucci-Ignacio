@@ -134,6 +134,7 @@ const imgAtras4 = document.createElement('img');
 imgAtras4.setAttribute('id', 'imgAtras4');
 const divPagarServiciosPagos = document.createElement('div');
 const divPagarServiciosCant = document.createElement('div');
+divPagarServiciosCant.setAttribute('id', 'divPagarServiciosCant');
 const h4PagarServiciosCant = document.createElement('h4');
 const inputPagarServiciosCant = document.createElement('input');
 inputPagarServiciosCant.setAttribute('id', 'inputPagarServiciosCant');
@@ -145,6 +146,8 @@ const divPagarServiciosCuentasTitulo = document.createElement('div');
 const h4PagarServiciosCuentas = document.createElement('h4');
 const h4PagarServiciosCuentas2 = document.createElement('h4');
 const divPagarServiciosCuentasLista = document.createElement('div');
+const divPagarServiciosCuentasListaServicios = document.createElement('div');
+const divPagarServiciosCuentasListaValor = document.createElement('div');
 const divPagarServiciosCuentasTotal = document.createElement('div');
 const divPagarServiciosCuentasTotaltxt = document.createElement('div');
 const divPagarServiciosCuentasTotalNum = document.createElement('div');
@@ -153,6 +156,7 @@ const h4PagarServiciosCuentasTotalNum = document.createElement('h4');
 const divPagarServiciosCuentasPagar = document.createElement('div');
 divPagarServiciosCuentasPagar.setAttribute('id', 'divPagarServiciosCuentasPagar');
 const botonPagarServiciosCuentas = document.createElement('button');
+botonPagarServiciosCuentas.setAttribute('id', 'botonPagarServiciosCuentas');
 const divModalPagarServicios = document.createElement('div');
 divModalPagarServicios.setAttribute('id', 'divModalPagarServicios');
 const divModalPagarServiciosOperacion = document.createElement('div');
@@ -163,9 +167,15 @@ inputModalPagarServiciosServicios.setAttribute('id', 'inputModalPagarServiciosSe
 const h4ModalPagarServiciosMonto = document.createElement('h4');
 const inputModalPagarServiciosMonto = document.createElement('input');
 inputModalPagarServiciosMonto.setAttribute('id', 'inputModalPagarServiciosMonto');
-const divbotonModalPagarServicios= document.createElement('div');
-divbotonModalPagarServicios.setAttribute('id', 'divbotonModalPagarServicios');
-const botonModalPagarServicios = document.createElement('button');
+const divbotonModalSiguienteServicio= document.createElement('div');
+divbotonModalSiguienteServicio.setAttribute('id', 'divbotonModalSiguienteServicio');
+const botonModalSiguienteServicio = document.createElement('button');
+botonModalSiguienteServicio.setAttribute('id', 'botonModalSiguienteServicio');
+const divbotonModalIniciarAgregarServicio= document.createElement('div');
+divbotonModalIniciarAgregarServicio.setAttribute('id', 'divbotonModalIniciarAgregarServicio');
+const botonModalIniciarAgregarServicio = document.createElement('button');
+botonModalIniciarAgregarServicio.setAttribute('id', 'botonModalIniciarAgregarServicio');
+
 
 
 
@@ -286,6 +296,8 @@ divPagarServiciosCuentas.appendChild(divPagarServiciosCuentasTitulo);
 divPagarServiciosCuentasTitulo.appendChild(h4PagarServiciosCuentas);
 divPagarServiciosCuentasTitulo.appendChild(h4PagarServiciosCuentas2);
 divPagarServiciosCuentas.appendChild(divPagarServiciosCuentasLista);
+divPagarServiciosCuentasLista.appendChild(divPagarServiciosCuentasListaServicios);
+divPagarServiciosCuentasLista.appendChild(divPagarServiciosCuentasListaValor);
 divPagarServiciosCuentas.appendChild(divPagarServiciosCuentasTotal);
 divPagarServiciosCuentasTotal.appendChild(divPagarServiciosCuentasTotaltxt);
 divPagarServiciosCuentasTotaltxt.appendChild(h4PagarServiciosCuentasTotaltxt);
@@ -300,8 +312,11 @@ formModalPagarServiciosOperacion.appendChild(h4ModalPagarServiciosServicios);
 formModalPagarServiciosOperacion.appendChild(inputModalPagarServiciosServicios);
 formModalPagarServiciosOperacion.appendChild(h4ModalPagarServiciosMonto);
 formModalPagarServiciosOperacion.appendChild(inputModalPagarServiciosMonto);
-formModalPagarServiciosOperacion.appendChild(divbotonModalPagarServicios);
-divbotonModalPagarServicios.appendChild(botonModalPagarServicios);
+formModalPagarServiciosOperacion.appendChild(divbotonModalSiguienteServicio);
+formModalPagarServiciosOperacion.appendChild(divbotonModalIniciarAgregarServicio);
+divbotonModalSiguienteServicio.appendChild(botonModalSiguienteServicio);
+divbotonModalIniciarAgregarServicio.appendChild(botonModalIniciarAgregarServicio);
+
 
 
 
@@ -638,6 +653,11 @@ botonPagarServiciosCant.style.padding = '10px';
 //
 divPagarServiciosCuentasTitulo.style.display = 'flex';
 //
+divPagarServiciosCuentasLista.style.display = 'flex';
+divPagarServiciosCuentasListaServicios.style.width = '50%';
+divPagarServiciosCuentasListaServicios.style.marginLeft = '50px';
+divPagarServiciosCuentasListaValor.style.width = '50%';
+//
 h4PagarServiciosCuentas.innerText = 'Servicio';
 h4PagarServiciosCuentas.style.width = '50%';
 h4PagarServiciosCuentas.style.marginLeft = '50px';
@@ -657,6 +677,7 @@ divPagarServiciosCuentasTotalNum.style.width = '50%';
 h4PagarServiciosCuentasTotalNum.innerHTML = '$ ';
 //
 divPagarServiciosCuentasPagar.style.textAlign ='center';
+divPagarServiciosCuentasPagar.style.marginBottom ='20px';
 //
 botonPagarServiciosCuentas.innerText = 'PAGAR';
 botonPagarServiciosCuentas.style.background = '#009ee3';
@@ -690,16 +711,30 @@ divModalPagarServiciosOperacion.style.textAlign ='center';
 //
 h4ModalPagarServiciosServicios.innerText = 'Ingrese el nombre del servicio';
 //
+inputModalPagarServiciosMonto.type = 'number';
+//
 h4ModalPagarServiciosMonto.innerText = 'Ingrese el monto a abonar';
 h4ModalPagarServiciosMonto.style.marginTop = '50px';
 //
-botonModalPagarServicios.style.marginTop = '50px';
-botonModalPagarServicios.innerText = 'Siguiente';
-botonModalPagarServicios.style.background = '#009ee3';
-botonModalPagarServicios.style.color = 'white';
-botonModalPagarServicios.style.webkitBorderRadius = '30px';
-botonModalPagarServicios.style.width = '50%';
-botonModalPagarServicios.style.padding = '10px';
+botonModalIniciarAgregarServicio.style.marginTop = '50px';
+botonModalIniciarAgregarServicio.innerText = 'Agregar';
+botonModalIniciarAgregarServicio.style.background = '#009ee3';
+botonModalIniciarAgregarServicio.style.color = 'white';
+botonModalIniciarAgregarServicio.style.webkitBorderRadius = '30px';
+botonModalIniciarAgregarServicio.style.width = '50%';
+botonModalIniciarAgregarServicio.style.padding = '10px';
+//
+divbotonModalSiguienteServicio.style.display = "none";
+//
+botonModalSiguienteServicio.style.marginTop = '50px';
+botonModalSiguienteServicio.innerText = 'Siguiente';
+botonModalSiguienteServicio.style.background = '#009ee3';
+botonModalSiguienteServicio.style.color = 'white';
+botonModalSiguienteServicio.style.webkitBorderRadius = '30px';
+botonModalSiguienteServicio.style.width = '50%';
+botonModalSiguienteServicio.style.padding = '10px';
+//
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //Evento Deslogueo
@@ -1035,14 +1070,15 @@ agregarContactoForm.addEventListener('submit', (e) => {
 })
 
 
-//Pagar servicios
+//Pagar servicios (Funcion asincronica y ciclo for)
 
 let servicios = document.getElementById('inputPagarServiciosCant');
 
 document.getElementById('botonPagarServiciosCant').addEventListener("click", () => {
     let serviciosParse = parseInt(servicios.value);
     if (serviciosParse > 0 && serviciosParse < 9) {
-        mostrarModalPagarServicios(serviciosParse);
+        let divModalPagarServicios = document.getElementById('divModalPagarServicios');
+        divModalPagarServicios.style.display = 'block';
     } else {
         swal({
             title: "Cantidad incorrecta",
@@ -1053,74 +1089,106 @@ document.getElementById('botonPagarServiciosCant').addEventListener("click", () 
     }
 });
 
-function mostrarModalPagarServicios(serviciosParse) {
-    let divModalPagarServicios = document.getElementById('divModalPagarServicios');
-    divModalPagarServicios.style.display = 'block';
 
-    document.getElementById('divbotonModalPagarServicios').addEventListener("click", () => {
-        
-        let saldoUsuario = parseFloat(sessionStorage.getItem('saldoUsuario'));
 
-        for (let i = 0; i < serviciosParse; i++) {
-            let servicio1 = document.getElementById('inputModalPagarServiciosServicios').value;
-            let valor1 = parseFloat(document.getElementById('inputModalPagarServiciosMonto').value);
-            if (valor1 > 0 && valor1 < saldoUsuario) {
-                saldoUsuario -= valor1;    
+document.getElementById('botonModalIniciarAgregarServicio').addEventListener("click", (e) => {
+    e.preventDefault()
+    IniciarAgregarServicios()
+})
 
-            } else if (valor1 <= 0) {
-                alert("El importe debe ser positivo.");
-            } else if (valor1 > saldoUsuario) {
-                alert("Saldo insuficiente.");
-            } else {
-                alert("Valor incorrecto.");
+let subTotalFactura = 0.0
+
+async function IniciarAgregarServicios() {
+    subTotalFactura = 0.0
+    divPagarServiciosCuentasListaServicios.innerHTML = '';
+    divPagarServiciosCuentasListaValor.innerHTML = '';
+    let serviciosParse = parseInt(servicios.value);
+    let subTotal = subTotalFactura;
+    divbotonModalSiguienteServicio.style.display = 'block';
+    divbotonModalIniciarAgregarServicio.style.display = 'none';
+    
+
+    const botonSiguiente = document.getElementById('botonModalSiguienteServicio');
+
+    function esperarClick() {
+        return new Promise((resolve) => {
+                        function hacerClick(e) {
+                e.preventDefault();
+                botonSiguiente.removeEventListener("click", hacerClick);
+                resolve();
             }
+            botonSiguiente.addEventListener("click", hacerClick);
+        });
+    }
+
+    for (let i = 0; i < serviciosParse; i++) {
+        let servicio1 = document.getElementById('inputModalPagarServiciosServicios').value;
+        let valor1 = parseFloat(document.getElementById('inputModalPagarServiciosMonto').value);
+        if (servicio1.trim() === '' || isNaN(valor1) || valor1 <= 0) {
+            swal({
+                title: "Los datos ingresados son incorrectos",
+                icon: "error",
+                button: "Aceptar"
+            })
+            continue;
         }
-        const saldoString = JSON.stringify(saldoUsuario);
-        sessionStorage.setItem("saldoUsuario", saldoString);
-        txtSaldo.innerText = "$ " + saldoUsuario;
-        alert("Saldo actual: $" + saldoUsuario);
-        alert("Gracias por utilizar el sistema de pagos!");
+        const h4ServicioFactura = document.createElement('h4');
+        divPagarServiciosCuentasListaServicios.appendChild(h4ServicioFactura);
+        h4ServicioFactura.innerHTML = servicio1;
+        const h4ValorFactura = document.createElement('h4');
+        divPagarServiciosCuentasListaValor.appendChild(h4ValorFactura);
+        h4ValorFactura.innerHTML = valor1;
+        subTotal += valor1;
+        h4PagarServiciosCuentasTotalNum.innerHTML = '$ ' + subTotal;
         document.getElementById('inputModalPagarServiciosServicios').value = '';
-        document.getElementById('inputModalPagarServiciosMonto').value = '';
-        document.getElementById('inputPagarServiciosCant').value = '';
-        divModalPagarServicios.style.display = 'none';
-    });
+        document.getElementById('inputModalPagarServiciosMonto').value = '';     
+        if(i < serviciosParse - 1){
+            await esperarClick();
+        }
+        else if(i = serviciosParse){
+            divModalPagarServicios.style.display = 'none';
+            divbotonModalSiguienteServicio.style.display = 'none';
+            divbotonModalIniciarAgregarServicio.style.display = 'block';
+        }
+  
+    }
+    subTotalFactura = subTotal;
 }
 
-
-/*/function pagarServicios() {
-    let servicios = parseInt(document.getElementById('inputPagarServiciosCant').value);
-
-    if (servicios > 0) {
-
-        for (let i = 0; i < servicios; i++) {
-            let servicio1 = document.getElementById('inputModalPagarServiciosServicios').value;
-            let valor1 = parseFloat(document.getElementById('inputModalPagarServiciosMonto').value);
-
-            if (valor1 > 0 && valor1 < saldo) {
-                saldo -= valor1;
-                alert("Pagaste " + servicio1 + " por un total de: $" + valor1);
-                alert("Saldo actual: $" + saldo);
-            }
-            else if (valor1 < 0) {
-                alert("El importe debe ser positivo.");
-            }
-            else if (valor1 > 0 && valor1 > saldo) {
-                alert("Saldo insuficiente.");
-            }
-            else {
-                alert("Valor incorrecto.");
-            }
+document.getElementById('botonPagarServiciosCuentas').addEventListener("click", (e) => {
+    e.preventDefault()
+    if(subTotalFactura == 0.0){
+        swal({
+            title: "No hay servicios para abonar",
+            icon: "error",
+            button: "Aceptar"
+        })
+    }
+    else if(subTotalFactura > sessionStorage.getItem('saldoUsuario')){
+        swal({
+            title: "Saldo insuficiente",
+            icon: "error",
+            button: "Aceptar"
+        })
         }
-        alert("Gracias por utilizar el sistema de pagos!")
-
+    else{
+        let saldo = sessionStorage.getItem("saldoUsuario");
+        let saldoParse = JSON.parse(saldo);
+        saldoParse -= subTotalFactura;
+        const saldoString = JSON.stringify(saldoParse);
+        sessionStorage.setItem("saldoUsuario", saldoString);
+        txtSaldo.innerText = "$ " + sessionStorage.getItem('saldoUsuario');
+        swal({
+            title: "Pago realizado con éxito",
+            text: "Tu saldo actual es de $ " + sessionStorage.getItem('saldoUsuario'),
+            icon: "success",
+            button: "Aceptar"
+        })
+        divPagarServiciosCuentasListaServicios.innerHTML = '';
+        divPagarServiciosCuentasListaValor.innerHTML = '';
+        h4PagarServiciosCuentasTotalNum.innerHTML = '$ ';
+        inputPagarServiciosCant.value = '';
+        subTotalFactura = 0.0;
     }
-    else if (servicios = 0) {
-        alert("Ningun servicio a abonar.");
-
     }
-    else {
-        alert("Valor incorrecto.")
-
-    }
-}//*/
+)
