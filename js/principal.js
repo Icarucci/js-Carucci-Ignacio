@@ -9,6 +9,14 @@ function inicioSaldo(){
 }
 inicioSaldo()
 
+function inicioSaldoDolares(){
+    if(sessionStorage.getItem('saldoUsuarioDolares') === null)
+        sessionStorage.setItem('saldoUsuarioDolares', 0);
+    else{
+        sessionStorage.getItem('saldoUsuarioDolares');
+    }
+}
+inicioSaldoDolares()
 
 
 // Delaración de Variables del Body y asignaciones de ID y/o clases
@@ -826,7 +834,7 @@ h5MainSaldosDolaresTxtComprarDolares.innerText = 'Saldo en dólares';
 h5MainSaldosDolaresTxtComprarDolares.style.margin = '0px 0px 10px 0px';
 h5MainSaldosDolaresTxtComprarDolares.style.fontSize = '20px';
 //
-h4MainSaldosDolaresComprarDolares.innerHTML = 'u$s ';
+h4MainSaldosDolaresComprarDolares.innerHTML = 'u$s ' + sessionStorage.getItem('saldoUsuarioDolares');
 h4MainSaldosDolaresComprarDolares.style.margin = '0px 0px 20px 0px';
 h4MainSaldosDolaresComprarDolares.style.fontSize = '40px';
 //
@@ -1354,20 +1362,107 @@ document.getElementById('botonPagarServiciosCuentas').addEventListener("click", 
 //Fetch y Api
 
 const api = document.getElementById('ulApiComprarDolares');
-
+let dolar;
 fetch("https://api.bluelytics.com.ar/v2/latest")
     .then((response) => response.json())
-    .then((data) => {
-        console.log(data);         
+    .then((data) => {      
         const blue = data.blue;
-        const actualizacion = data.last_update;
+        const actualizacionFecha = data.last_update.split('T')[0];
+        const actualizacionHora = data.last_update.split('T')[1].split('.')[0];
         const li = document.createElement('li');
+        dolarVenta = blue.value_sell;
+        dolarCompra = blue.value_buy;
         li.innerHTML = `
             <h3>Valor del dólar</h3>
             <p>Compra: ${blue.value_buy}</p>
             <p>Venta: ${blue.value_sell}</p>
-            <p>Ultima actualización: ${actualizacion}</p>
+            <p>Fecha última actualización: ${actualizacionFecha}</p>
+            <p>Hora última actualización: ${actualizacionHora}</p>
              `
         ;
             api.appendChild(li);
         })
+
+//Compra dolares
+document.getElementById('botonMainOperacionesCompraComprarDolares').addEventListener("click", comprarDolares);
+
+function comprarDolares(){
+    let dolaresIngresados = document.getElementById('inputMainOperacionesCompraComprarDolares').value;
+    let calculoCompraDolares = parseFloat(dolaresIngresados) * dolarVenta;
+    let saldo = sessionStorage.getItem("saldoUsuario");
+    let saldoParse = JSON.parse(saldo);
+    let saldoDolaresParse = JSON.parse(dolaresIngresados);
+    if(calculoCompraDolares > 0){
+        if(saldoParse >= calculoCompraDolares){
+            saldoParse -= calculoCompraDolares;
+            sessionStorage.setItem("saldoUsuario", saldoParse);
+            sessionStorage.setItem("saldoUsuarioDolares", saldoDolaresParse);
+            swal({
+                title: "Compra realizada!",
+                text: "Se añadieron u$s" + saldoDolaresParse + " a tu cuenta en dólares",
+                icon: "success",
+                button: "Aceptar"
+            })
+            txtSaldo.innerText = "$ " + sessionStorage.getItem('saldoUsuario');
+            h4MainSaldosPesosComprarDolares.innerHTML = ' $  ' + sessionStorage.getItem('saldoUsuario');
+            h4MainSaldosDolaresComprarDolares.innerHTML = 'u$s ' + sessionStorage.getItem('saldoUsuarioDolares');
+            inputMainOperacionesCompraComprarDolares.value = '';       
+        }
+        else{
+            swal({
+                title: "Saldo insuficiente",
+                text: "Tu saldo de $ " + saldoParse + " no es suficiente",
+                icon: "error",
+                button: "Aceptar"
+            })
+            inputMainOperacionesCompraComprarDolares.value = ''; 
+        }
+    }
+    else{
+        swal({
+            title: "Transaccion incorrecta",
+            text: "No puedes ingresar un valor negativo",
+            icon: "error",
+            button: "Aceptar"
+        })
+        inputMainOperacionesCompraComprarDolares.value = ''; 
+    }   
+}
+
+//Vender Dolares
+document.getElementById('botonMainOperacionesVentaComprarDolares').addEventListener("click", venderDolares);
+
+function venderDolares(){
+    let dolaresIngresados = document.getElementById('inputMainOperacionesVentaComprarDolares').value;
+    let calculoVentaDolares = parseFloat(dolaresIngresados) * dolarCompra;
+    let saldoPesos = sessionStorage.getItem("saldoUsuario");
+    let saldo = sessionStorage.getItem("saldoUsuarioDolares");
+    let saldoParse = JSON.parse(saldo);
+    let saldoDolaresParse = JSON.parse(dolaresIngresados);
+    let saldoParsePesos = JSON.parse(saldoPesos);
+    if(calculoVentaDolares > 0){
+            saldoParsePesos += calculoVentaDolares;
+            saldoParse -= saldoDolaresParse;
+            sessionStorage.setItem("saldoUsuario", saldoParsePesos);
+            sessionStorage.setItem("saldoUsuarioDolares", saldoParse);
+            swal({
+                title: "Venta realizada!",
+                text: "Se añadieron $" + saldoDolaresParse + " a tu cuenta en pesos",
+                icon: "success",
+                button: "Aceptar"
+            })
+            txtSaldo.innerText = "$ " + sessionStorage.getItem('saldoUsuario');
+            h4MainSaldosPesosComprarDolares.innerHTML = ' $  ' + sessionStorage.getItem('saldoUsuario');
+            h4MainSaldosDolaresComprarDolares.innerHTML = 'u$s ' + sessionStorage.getItem('saldoUsuarioDolares');
+            inputMainOperacionesVentaComprarDolares.value = '';       
+        }
+    else{
+        swal({
+            title: "Transaccion incorrecta",
+            text: "No puedes ingresar un valor negativo",
+            icon: "error",
+            button: "Aceptar"
+        })
+        inputMainOperacionesVentaComprarDolares.value = ''; 
+    }   
+}
