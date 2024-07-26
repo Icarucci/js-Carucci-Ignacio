@@ -85,6 +85,7 @@ const divimgPagarServicios = document.createElement('div');
 divimgPagarServicios.setAttribute('id', 'idPagarServicios');
 divimgPagarServicios.setAttribute('class', 'zoom');
 const divimgComprarDolares = document.createElement('div');
+divimgComprarDolares.setAttribute('id', 'divComprarDolares');
 divimgComprarDolares.setAttribute('class', 'zoom');
 const imgIngresarSaldo = document.createElement('img');
 const imgTransferirSaldo = document.createElement('img');
@@ -175,6 +176,37 @@ const divbotonModalIniciarAgregarServicio= document.createElement('div');
 divbotonModalIniciarAgregarServicio.setAttribute('id', 'divbotonModalIniciarAgregarServicio');
 const botonModalIniciarAgregarServicio = document.createElement('button');
 botonModalIniciarAgregarServicio.setAttribute('id', 'botonModalIniciarAgregarServicio');
+const divOPComprarDolares = document.createElement('div');
+divOPComprarDolares.setAttribute('id', 'divOPComprarDolares');
+const divComprarDolaresSalir = document.createElement('div');
+const h3ComprarDolares = document.createElement('h3');
+const imgAtras5 = document.createElement('img');
+imgAtras5.setAttribute('id', 'imgAtras5');
+const divComprarDolaresMain = document.createElement('div');
+const divMainSaldosComprarDolares = document.createElement('div');
+const divMainSaldosPesosComprarDolares = document.createElement('div');
+const h4MainSaldosPesosComprarDolares = document.createElement('h4');
+const h5MainSaldosPesosTxtComprarDolares = document.createElement('h5');
+const divMainSaldosDolaresComprarDolares = document.createElement('div');
+const h4MainSaldosDolaresComprarDolares = document.createElement('h4');
+const h5MainSaldosDolaresTxtComprarDolares = document.createElement('h5');
+const divMainOperacionesComprarDolares = document.createElement('div');
+const divMainOperacionesCompraComprarDolares = document.createElement('div');
+const h4MainOperacionesCompraComprarDolares = document.createElement('h4');
+const inputMainOperacionesCompraComprarDolares = document.createElement('input');
+inputMainOperacionesCompraComprarDolares.setAttribute('id', 'inputMainOperacionesCompraComprarDolares');
+const botonMainOperacionesCompraComprarDolares = document.createElement('button');
+botonMainOperacionesCompraComprarDolares.setAttribute('id', 'botonMainOperacionesCompraComprarDolares');
+const divMainOperacionesVentaComprarDolares = document.createElement('div');
+const h4MainOperacionesVentaComprarDolares = document.createElement('h4');
+const inputMainOperacionesVentaComprarDolares = document.createElement('input');
+inputMainOperacionesVentaComprarDolares.setAttribute('id', 'inputMainOperacionesVentaComprarDolares');
+const botonMainOperacionesVentaComprarDolares = document.createElement('button');
+botonMainOperacionesVentaComprarDolares.setAttribute('id', 'botonMainOperacionesVentaComprarDolares');
+const divApiComprarDolares = document.createElement('div');
+divApiComprarDolares.setAttribute('id', 'divApiComprarDolares');
+const ulApiComprarDolares = document.createElement('ul');
+ulApiComprarDolares.setAttribute('id', 'ulApiComprarDolares');
 
 
 
@@ -316,6 +348,34 @@ formModalPagarServiciosOperacion.appendChild(divbotonModalSiguienteServicio);
 formModalPagarServiciosOperacion.appendChild(divbotonModalIniciarAgregarServicio);
 divbotonModalSiguienteServicio.appendChild(botonModalSiguienteServicio);
 divbotonModalIniciarAgregarServicio.appendChild(botonModalIniciarAgregarServicio);
+
+//Comprar dolares
+div4main.appendChild(divOPComprarDolares);
+divOPComprarDolares.appendChild(divComprarDolaresSalir);
+divComprarDolaresSalir.appendChild(h3ComprarDolares);
+divComprarDolaresSalir.appendChild(imgAtras5);
+imgAtras5.src = 'assets/img/atras.png';
+imgAtras5.alt = 'Atras';
+divOPComprarDolares.appendChild(divComprarDolaresMain);
+divComprarDolaresMain.appendChild(divMainSaldosComprarDolares);
+divMainSaldosComprarDolares.appendChild(divMainSaldosPesosComprarDolares);
+divMainSaldosPesosComprarDolares.appendChild(h5MainSaldosPesosTxtComprarDolares);
+divMainSaldosPesosComprarDolares.appendChild(h4MainSaldosPesosComprarDolares);
+divMainSaldosComprarDolares.appendChild(divMainSaldosDolaresComprarDolares);
+divMainSaldosDolaresComprarDolares.appendChild(h5MainSaldosDolaresTxtComprarDolares);
+divMainSaldosDolaresComprarDolares.appendChild(h4MainSaldosDolaresComprarDolares);
+divComprarDolaresMain.appendChild(divMainOperacionesComprarDolares);
+divMainOperacionesComprarDolares.appendChild(divMainOperacionesCompraComprarDolares);
+divMainOperacionesCompraComprarDolares.appendChild(h4MainOperacionesCompraComprarDolares);
+divMainOperacionesCompraComprarDolares.appendChild(inputMainOperacionesCompraComprarDolares);
+divMainOperacionesCompraComprarDolares.appendChild(botonMainOperacionesCompraComprarDolares);
+divMainOperacionesComprarDolares.appendChild(divMainOperacionesVentaComprarDolares);
+divMainOperacionesVentaComprarDolares.appendChild(h4MainOperacionesVentaComprarDolares);
+divMainOperacionesVentaComprarDolares.appendChild(inputMainOperacionesVentaComprarDolares);
+divMainOperacionesVentaComprarDolares.appendChild(botonMainOperacionesVentaComprarDolares);
+divComprarDolaresMain.appendChild(divApiComprarDolares);
+divApiComprarDolares.appendChild(ulApiComprarDolares);
+
 
 
 
@@ -734,6 +794,79 @@ botonModalSiguienteServicio.style.webkitBorderRadius = '30px';
 botonModalSiguienteServicio.style.width = '50%';
 botonModalSiguienteServicio.style.padding = '10px';
 //
+divOPComprarDolares.style.display = 'none';
+//
+divComprarDolaresSalir.style.display = 'flex';
+//
+h3ComprarDolares.style.width = '90%';
+h3ComprarDolares.innerHTML = 'Comprar Dolares';
+h3ComprarDolares.style.fontSize = '30px';
+h3ComprarDolares.style.padding = '20px';
+h3ComprarDolares.style.margin = '0px';
+//
+imgAtras5.style.width = '50px';
+imgAtras5.style.height = '50px';
+imgAtras5.style.padding = '20px';
+//
+divComprarDolaresMain.style.display = 'flex';
+//
+divMainSaldosComprarDolares.style.width = '33%';
+divMainSaldosComprarDolares.style.padding = '20px';
+divMainSaldosComprarDolares.style.margin = '0px';
+//
+h5MainSaldosPesosTxtComprarDolares.innerText = 'Saldo en pesos';
+h5MainSaldosPesosTxtComprarDolares.style.margin = '0px 0px 10px 0px';
+h5MainSaldosPesosTxtComprarDolares.style.fontSize = '20px';
+//
+h4MainSaldosPesosComprarDolares.innerHTML = ' $  ' + sessionStorage.getItem('saldoUsuario');
+h4MainSaldosPesosComprarDolares.style.margin = '0px 0px 30px 0px';
+h4MainSaldosPesosComprarDolares.style.fontSize = '40px';
+//
+h5MainSaldosDolaresTxtComprarDolares.innerText = 'Saldo en dólares';
+h5MainSaldosDolaresTxtComprarDolares.style.margin = '0px 0px 10px 0px';
+h5MainSaldosDolaresTxtComprarDolares.style.fontSize = '20px';
+//
+h4MainSaldosDolaresComprarDolares.innerHTML = 'u$s ';
+h4MainSaldosDolaresComprarDolares.style.margin = '0px 0px 20px 0px';
+h4MainSaldosDolaresComprarDolares.style.fontSize = '40px';
+//
+divMainOperacionesComprarDolares.style.width = '33%';
+divMainOperacionesComprarDolares.style.padding = '20px';
+divMainOperacionesComprarDolares.style.marginBottom = '20px';
+divMainOperacionesComprarDolares.style.boxShadow = '10px 10px 30px rgba(0, 0, 0, 0.3)';
+divMainOperacionesComprarDolares.style.border = '0.5px solid grey';
+divMainOperacionesComprarDolares.style.webkitBorderRadius = '10px';
+divMainOperacionesComprarDolares.style.background = '#6ec5ff';
+//
+divMainOperacionesCompraComprarDolares.style.height = '50%';
+//
+h4MainOperacionesCompraComprarDolares.innerText = 'Comprar dólares';
+h4MainOperacionesCompraComprarDolares.style.fontSize = '30px';
+h4MainOperacionesCompraComprarDolares.style.margin = '0px 0px 10px 0px';
+//
+inputMainOperacionesCompraComprarDolares.style.width = '60%';
+inputMainOperacionesCompraComprarDolares.style.marginRight = '5px';
+inputMainOperacionesCompraComprarDolares.placeholder = 'Ingrese valor en dolares';
+inputMainOperacionesCompraComprarDolares.type = 'number';
+//
+botonMainOperacionesCompraComprarDolares.innerText = 'Comprar';
+//
+divMainOperacionesCompraComprarDolares.style.height = '50%';
+//
+h4MainOperacionesVentaComprarDolares.innerText = 'Vender dólares';
+h4MainOperacionesVentaComprarDolares.style.fontSize = '30px';
+h4MainOperacionesVentaComprarDolares.style.margin = '0px 0px 10px 0px';
+//
+inputMainOperacionesVentaComprarDolares.style.width = '60%';
+inputMainOperacionesVentaComprarDolares.style.marginRight = '5px';
+inputMainOperacionesVentaComprarDolares.placeholder = 'Ingrese valor en dolares';
+inputMainOperacionesVentaComprarDolares.type = 'number';
+//
+botonMainOperacionesVentaComprarDolares.innerText = 'Vender';
+//
+divApiComprarDolares.style.width = '33%';
+divApiComprarDolares.style.padding = '20px';
+divApiComprarDolares.style.margin = '0px';
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -875,6 +1008,30 @@ function mostrarDivPagarServicios() {
     let div3 = document.getElementById('div3main');
     div3.style.display = 'block';
     let div4 = document.getElementById('divOPpagarServicios');
+    div4.style.display = 'none';
+}
+
+imgAtras.addEventListener("mouseover", () => {
+    imgAtras.style.cursor = "pointer";
+})
+
+// Ocultar y Mostrar: divOComprarDolares
+document.getElementById('divComprarDolares').addEventListener("click", ocultarDivComprarDolares);
+
+function ocultarDivComprarDolares() {
+    let div3 = document.getElementById('div3main');
+    div3.style.display = 'none';
+    let div4 = document.getElementById('divOPComprarDolares');
+    div4.style.display = 'block';
+    h4MainSaldosPesosComprarDolares.innerHTML = '$  ' + sessionStorage.getItem('saldoUsuario');
+}
+
+document.getElementById('imgAtras5').addEventListener("click", mostrarDivComprarDolares);
+
+function mostrarDivComprarDolares() {
+    let div3 = document.getElementById('div3main');
+    div3.style.display = 'block';
+    let div4 = document.getElementById('divOPComprarDolares');
     div4.style.display = 'none';
 }
 
@@ -1192,3 +1349,25 @@ document.getElementById('botonPagarServiciosCuentas').addEventListener("click", 
     }
     }
 )
+
+
+//Fetch y Api
+
+const api = document.getElementById('ulApiComprarDolares');
+
+fetch("https://api.bluelytics.com.ar/v2/latest")
+    .then((response) => response.json())
+    .then((data) => {
+        console.log(data);         
+        const blue = data.blue;
+        const actualizacion = data.last_update;
+        const li = document.createElement('li');
+        li.innerHTML = `
+            <h3>Valor del dólar</h3>
+            <p>Compra: ${blue.value_buy}</p>
+            <p>Venta: ${blue.value_sell}</p>
+            <p>Ultima actualización: ${actualizacion}</p>
+             `
+        ;
+            api.appendChild(li);
+        })
